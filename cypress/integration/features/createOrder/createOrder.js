@@ -40,6 +40,7 @@ Then('verify the adding cart message', function () {
 
 When('go to the shopping cart page', function () {
 	Search.shoppingCartLink().click();
+	cy.wait(3000);
 });
 
 Then('verify the product menu, price, quantity', function () {
@@ -53,6 +54,7 @@ And('check the terms and conditon', function () {
 
 And('click on checkout button', function () {
 	Shoppingcart.checkoutBtn().click();
+	cy.wait(3000);
 });
 
 When('checkout as a guest user', function () {
@@ -140,4 +142,5 @@ And('verify the shipping address details, price', function () {
 
 And('click on continue button from payment-info section', function () {
 	checkout.paymentinfoContinueBtn().click();
+	cy.wait(3000);
 });
