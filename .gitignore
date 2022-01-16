@@ -1,6 +1,4 @@
 node_modules/
-results.json
-cypress.env.json
-cypress/screenshots
-cypress/videos
-cypress/reports
+cypress/screenshots/
+cypress/videos/
+cypress/reports/
