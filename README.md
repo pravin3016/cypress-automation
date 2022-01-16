@@ -26,7 +26,7 @@ Cypress Automation Test Framework with BDD (Cucumber)
 Clone the repository usin below stpes:
 
 ```sh
-git clone https://github.com/pravin3016/cypress-bdd-automation.git
+git clone https://github.com/pravin3016/cypress-automation.git
 cd cypress-bdd-automation
 
 ```
