@@ -54,8 +54,7 @@ class CheckoutPage {
 		return cy.get('.payment-method-next-step-button')
 	}
 	paymentinfoContinueBtn() {
-		cy.get('.payment-info-next-step-button')
-		return cy.wait(3000)
+		return cy.get('.payment-info-next-step-button')
 	}
 	getShipCheckbox() {
 		return cy.get('#ShipToSameAddress');
