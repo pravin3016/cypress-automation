@@ -6,15 +6,18 @@ class ShoppingCartPage {
         //Update shopping cart
         cy.get(".update-cart-button[name=updatecart]").click()
         //Verify Total  $490.00
-        //cy.get(".value-summary > strong").contains('$490.00')
         cy.get(".value-summary > strong")
           .should(($total)=>{
               expect($total).to.contain('$490.00')
           })
     }
+    shoppingCartHeader() {
+        cy.url().should('include', '/cart');
+    }
 
-  
-
+    checkoutAsGuestHeader() {
+        cy.url().should('include', '/login/checkoutasguest');
+    }
     checkTOS() {
         return cy.get('#termsofservice');
     }

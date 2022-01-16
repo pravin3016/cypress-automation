@@ -22,7 +22,25 @@ class CheckoutPage {
 		cardcode: () => cy.get('#CardCode')
 
 	}
+	shippingAddressHeader() {
+		cy.url().should('include', '/onepagecheckout#opc-billing');
+	}
 
+	shippingMethodHeader() {
+		cy.url().should('include', '/onepagecheckout#opc-shipping_method');
+	}
+	paymentMethodHeader() {
+		cy.url().should('include', '/onepagecheckout#opc-payment_method');
+	}
+	paymentInfoHeader() {
+		cy.url().should('include', '/onepagecheckout#opc-payment_info');
+	}
+	confirmPageHeader() {
+		cy.url().should('include', '/checkout/completed');
+	}
+	confirmOrderHeader() {
+		cy.url().should('include', '/onepagecheckout#opc-confirm_order');
+	}
 	checkoutGuest() {
 		return cy.get('.checkout-as-guest-button');
 	}
@@ -36,7 +54,8 @@ class CheckoutPage {
 		return cy.get('.payment-method-next-step-button')
 	}
 	paymentinfoContinueBtn() {
-		return cy.get('.payment-info-next-step-button')
+		cy.get('.payment-info-next-step-button')
+		return cy.wait(3000)
 	}
 	getShipCheckbox() {
 		return cy.get('#ShipToSameAddress');

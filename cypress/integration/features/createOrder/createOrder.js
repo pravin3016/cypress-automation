@@ -40,10 +40,10 @@ Then('verify the adding cart message', function () {
 
 When('go to the shopping cart page', function () {
 	Search.shoppingCartLink().click();
-	cy.wait(5000);
 });
 
 Then('verify the product menu, price, quantity', function () {
+	Shoppingcart.shoppingCartHeader();
 	Shoppingcart.validatePrice();
 });
 
@@ -56,11 +56,13 @@ And('click on checkout button', function () {
 });
 
 When('checkout as a guest user', function () {
+	Shoppingcart.checkoutAsGuestHeader();
 	checkout.checkoutGuest().click();
 });
 
 Then('verify the ship to same address checkbox', function () {
 	checkout.getShipCheckbox().should('have.attr', 'checked');
+	checkout.shippingAddressHeader();
 });
 
 And('filling the billing, shipping address', function () {
@@ -80,7 +82,6 @@ And('filling the billing, shipping address', function () {
 });
 
 And('click on continue button', function () {
-
 	checkout.continueBtn().click();
 	cy.wait(5000);
 });
@@ -89,17 +90,18 @@ When('user select shipping method as {string}', function (shippingMethod) {
 	//visible and checked verification 
 	checkout.groundShippingChecbox().should('be.visible').should('be.checked');
 	checkout.airShippingChecbox(shippingMethod).should('be.visible').should('not.be.checked').click();
-
+	checkout.shippingMethodHeader();
 });
 
 And('click on continue button from shipping section', function () {
 	checkout.shippingContinueBtn().click();
-	cy.wait(5000);
+
 });
 
 And('user select the payment method as {string}', function (paymentmethod) {
 	checkout.getMoneyOrderPayment().should('be.visible').should('be.checked');
 	checkout.getPaymentMethod(paymentmethod).should('be.visible').should('not.be.checked').click()
+	checkout.paymentMethodHeader();
 });
 
 And('click on continue button from payment section', function () {
@@ -109,6 +111,7 @@ And('click on continue button from payment section', function () {
 
 Then('verify the {string} payment info', function (paymentMethod) {
 	checkout.getPaymentInfo(paymentMethod);
+	checkout.paymentInfoHeader();
 });
 
 When('click on confirm order button', function () {
@@ -118,6 +121,7 @@ When('click on confirm order button', function () {
 Then('verify the order number, success message', function () {
 	checkout.getOrderConfirmation().invoke("text").should("eq", "Thank you");
 	checkout.getOrderNumMessage().contains('Order number:');
+	checkout.confirmPageHeader();
 	cy.wait(3000);
 
 });
@@ -130,10 +134,10 @@ And('verify the shipping address details, price', function () {
 		.should(($total) => {
 			expect($total).to.contain('$490.00')
 		})
+	checkout.confirmOrderHeader();
 
 });
 
 And('click on continue button from payment-info section', function () {
 	checkout.paymentinfoContinueBtn().click();
-	cy.wait(3000);
 });

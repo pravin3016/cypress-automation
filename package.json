@@ -8,9 +8,7 @@
     "cypress-ui": "npx cypress open",
     "cypress-tag": "./node_modules/.bin/cypress-tags run -e TAGS='@TestFeature'",
     "cypress-test": "npx cypress run --spec cypress/integration/features/createOrder.feature",
-    "clean:reports": "rm -rf cypress/reports/cucumber-html-report",
-    "pretest": "npm run clean:reports",
-    "posttest": "node cypress/cucumber-html-report.js"
+    "report": "node cypress/cucumber-html-report.js"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
@@ -33,7 +31,7 @@
   "author": "Praveenkumar J",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^9.2.1",
+    "cypress": "8.6.0",
     "cypress-cucumber-attach-screenshots-to-failed-steps": "^1.0.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-iframe": "^1.0.1",
