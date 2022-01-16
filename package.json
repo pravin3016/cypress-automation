@@ -1,0 +1,42 @@
+{
+  "name": "nopcommerce-demo-automation",
+  "version": "1.0.0",
+  "description": "nopCommerce demo store",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run --browser chrome",
+    "cypress-ui": "npx cypress open",
+    "cypress-tag": "./node_modules/.bin/cypress-tags run -e TAGS='@TestFeature'",
+    "cypress-test": "npx cypress run --spec cypress/integration/features/createOrder.feature",
+    "clean:reports": "rm -rf cypress/reports/cucumber-html-report",
+    "pretest": "npm run clean:reports",
+    "posttest": "node cypress/cucumber-html-report.js"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/reports/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pravin3016"
+  },
+  "keywords": [
+    "Cypress",
+    "Cucumber",
+    "nopcommerce"
+  ],
+  "author": "Praveenkumar J",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^9.2.1",
+    "cypress-cucumber-attach-screenshots-to-failed-steps": "^1.0.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-iframe": "^1.0.1",
+    "multiple-cucumber-html-reporter": "^1.18.3"
+  }
+}

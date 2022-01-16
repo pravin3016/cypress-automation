@@ -1,0 +1,11 @@
+{
+    "defaultCommandTimeout": 20000,
+    "pageLoadTimeout": 20000,
+    "baseUrl": "https://frontend.nopcommerce.com/",
+    "env": {
+      "RETRIES": 2
+    },
+    "testFiles": "**/*.feature",
+    "video": false
+  }
+  
