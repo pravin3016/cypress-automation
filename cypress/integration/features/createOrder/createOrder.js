@@ -1,10 +1,11 @@
 /// <reference types="Cypress"/>
 
 import { Then, And, Given, When } from 'cypress-cucumber-preprocessor/steps';
-import CheckoutPage from '../../../support/PageObjects/CheckoutPage';
-import HomePage from '../../../support/PageObjects/homePage';
-import SearchResultPage from '../../../support/PageObjects/searchResultpage';
-import ShoppingCartPage from '../../../support/PageObjects/ShoppingCartPage';
+import CheckoutPage from '../../../PageObjects/CheckoutPage';
+import HomePage from '../../../PageObjects/homePage';
+
+import SearchResultPage from '../../../PageObjects/searchResultpage';
+import ShoppingCartPage from '../../../PageObjects/ShoppingCartPage';
 
 //Use the cy.fixture() method to pull data from fixture file
 before(function () {
@@ -127,7 +128,7 @@ And('verify the shipping address details, price', function () {
 	})
 	checkout.getOrderPrice()
 		.should(($total) => {
-			expect($total).to.contain('$491.00')
+			expect($total).to.contain('$490.00')
 		})
 
 });
