@@ -10,7 +10,7 @@
     "cypress-test": "npx cypress run --spec cypress/integration/features/createOrder.feature",
     "report": "node cypress/cucumber-html-report.js",
     "pretest": "npm run clean:reports",
-    "clean:reports": "rm -R -f cypress/reports && mkdir cypress/reports"
+    "clean:reports": "rm -rf cypress/reports && mkdir cypress/reports"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
