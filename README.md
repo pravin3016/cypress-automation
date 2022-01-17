@@ -55,6 +55,11 @@ npm install
 ```
 npm run test 
 ```
+#### 'OR'
+### Run tests on UI mode
+```
+npm run cypress-ui
+```
 ## Generate HTML report with screenshots
 
 ```shell
