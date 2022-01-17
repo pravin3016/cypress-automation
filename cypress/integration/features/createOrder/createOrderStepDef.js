@@ -1,9 +1,9 @@
 /// <reference types="Cypress"/>
 
 import { Then, And, Given, When } from 'cypress-cucumber-preprocessor/steps';
+import { zip } from 'cypress/types/lodash';
 import CheckoutPage from '../../../PageObjects/CheckoutPage';
 import HomePage from '../../../PageObjects/homePage';
-
 import SearchResultPage from '../../../PageObjects/searchResultpage';
 import ShoppingCartPage from '../../../PageObjects/ShoppingCartPage';
 
@@ -68,19 +68,20 @@ Then('verify the ship to same address checkbox', function () {
 });
 
 And('filling the billing, shipping address', function () {
-	checkout.elements.firstName().type(this.testdata.billingAddress.firstname);
-	checkout.elements.lastName().type(this.testdata.billingAddress.lastname);
-	checkout.elements.email().type(this.testdata.billingAddress.email);
-	checkout.elements.company().type(this.testdata.billingAddress.company);
-	checkout.elements.country().select(this.testdata.billingAddress.country);
-	cy.wait(3000);
-	checkout.elements.state().select(this.testdata.billingAddress.state);
-	checkout.elements.city().type(this.testdata.billingAddress.city);
-	checkout.elements.address1().type(this.testdata.billingAddress.addressLine1);
-	checkout.elements.address2().type(this.testdata.billingAddress.addressLine2);
-	checkout.elements.postalcode().type(this.testdata.billingAddress.zipCode);
-	checkout.elements.phoneNumber().type(this.testdata.billingAddress.phonenNumber);
-	checkout.elements.faxNumber().type(this.testdata.billingAddress.fax);
+	var firstname = this.testdata.billingAddress.firstname;
+	var lastname = this.testdata.billingAddress.lastname;
+	var email = this.testdata.billingAddress.email;
+	var company = this.testdata.billingAddress.company;
+	var country = this.testdata.billingAddress.country;
+	var state = this.testdata.billingAddress.state;
+	var city = this.testdata.billingAddress.city;
+	var addressLine1 = this.testdata.billingAddress.addressLine1;
+	var addressLine2 = this.testdata.billingAddress.addressLine2;
+	var zipCode = this.testdata.billingAddress.zipCode;
+	var phonenNumber = this.testdata.billingAddress.phonenNumber;
+	var fax = this.testdata.billingAddress.fax;
+
+	checkout.fillBillingAddress(firstname, lastname, email, company, country, state, city, addressLine1, addressLine2, zipCode, phonenNumber, fax);
 });
 
 And('click on continue button', function () {

@@ -25,7 +25,6 @@ class CheckoutPage {
 	shippingAddressHeader() {
 		cy.url().should('include', '/onepagecheckout#opc-billing');
 	}
-
 	shippingMethodHeader() {
 		cy.url().should('include', '/onepagecheckout#opc-shipping_method');
 	}
@@ -62,22 +61,14 @@ class CheckoutPage {
 	airShippingChecbox(shippingMethod) {
 		return cy.get(`input[value='${shippingMethod}']`)
 	}
-
 	groundShippingChecbox() {
 		return cy.get('#shippingoption_0')
-
 	}
 	getPaymentMethod(paymentMethod) {
 		return cy.get(`input[value='${paymentMethod}']`)
-
 	}
 	getMoneyOrderPayment() {
 		return cy.get(`input[value='Payments.CheckMoneyOrder']`)
-	}
-
-	validatePaymentCard(paymentMethod) {
-
-
 	}
 	getPaymentInfo(paymentMethod) {
 
@@ -98,22 +89,32 @@ class CheckoutPage {
 	}
 	getOrderConfirmation() {
 		return cy.get('h1');
-
 	}
-
+	fillBillingAddress(firstName,lastName,email,company,country,state,city,addressLine1,addressLine2,zipCode,phonenNumber,fax) {
+		this.elements.firstName().type(firstName);
+		this.elements.lastName().type(lastName);
+		this.elements.email().type(email);
+		this.elements.company().type(company);
+		this.elements.country().select(country);
+		cy.wait(3000);
+		this.elements.state().select(state);
+		this.elements.city().type(city);
+		this.elements.address1().type(addressLine1);
+		this.elements.address2().type(addressLine2);
+		this.elements.postalcode().type(zipCode);
+		this.elements.phoneNumber().type(phonenNumber);
+		this.elements.faxNumber().type(fax);
+	}
 	getOrderPrice() {
 		// validating the price
 		return cy.get(".value-summary > strong")
-
 	}
 	getOrderNumMessage() {
 		return cy.get('div.order-number > strong')
 	}
-
 	confirmBtn() {
 		return cy.get(".confirm-order-next-step-button")
 	}
-
 	getShippingInfo() {
 		return cy.get('div.shipping-info > ul >li')
 	}
