@@ -1,11 +1,10 @@
 class HomePage {
+  searchInput() {
+    return cy.get('#small-searchterms');
+  }
 
-	searchInput() {
-		return cy.get('#small-searchterms');
-	}
-	clickSearchBtn() {
-		cy.get('.search-box-button[type=submit]').click();
-	}
-
+  clickSearchBtn() {
+    cy.get('.search-box-button[type=submit]').click();
+  }
 }
-export default HomePage
+export default HomePage;

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 // ***********************************************************
 // This example support/index.js is processed and
 // loaded automatically before your test files.
@@ -14,8 +15,8 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
-import "cypress-cucumber-attach-screenshots-to-failed-steps";
+import './commands';
+import 'cypress-cucumber-attach-screenshots-to-failed-steps';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

@@ -24,9 +24,6 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-
-Cypress.Commands.add('openiframe', () => {
-    return cy.get("iframe[src^='https']").then(iframe => {
-        cy.visit(Cypress.$(iframe).attr('src'), { timeout: Cypress.config("pageLoadTimeout") });
-    });
-});
+Cypress.Commands.add('openiframe', () => cy.get("iframe[src^='https']").then((iframe) => {
+  cy.visit(Cypress.$(iframe).attr('src'), { timeout: Cypress.config('pageLoadTimeout') });
+}));

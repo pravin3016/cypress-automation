@@ -9,13 +9,13 @@ report.generate({
   metadata: {
     browser: {
       name: 'chrome',
-      version: '92'
+      version: '92',
     },
     device: 'Test machine',
     platform: {
       name: 'MacBook',
-      version: '11.6'
-    }
+      version: '11.6',
+    },
   },
   customData: {
     title: 'Run info',
@@ -25,9 +25,9 @@ report.generate({
       { label: 'Environment', value: 'Staging' },
       {
         label: 'Execution Start Time',
-        value: `${new Date().toLocaleString()}`
-      }
-    ]
+        value: `${new Date().toLocaleString()}`,
+      },
+    ],
   },
-  customizedReportName: 'Demo Automation'
+  customizedReportName: 'Demo Automation',
 });
