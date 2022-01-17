@@ -26,11 +26,11 @@ Given('launch the nopcommerce site', function () {
 And('search the {string} and click on search button', function (product) {
 	cy.openiframe();
 	Home.searchInput().type(product);
-	Home.searchBtn().click();
+	Home.clickSearchBtn();
 });
 
 And('add an item to the cart', function () {
-	Search.addToCartBtn().click();
+	Search.addToCartBtn();
 });
 
 Then('verify the adding cart message', function () {
@@ -38,8 +38,7 @@ Then('verify the adding cart message', function () {
 });
 
 When('go to the shopping cart page', function () {
-	Search.shoppingCartLink().click();
-	cy.wait(3000);
+	Search.shoppingCartLink();
 });
 
 Then('verify the product menu, price, quantity', function () {
@@ -52,13 +51,12 @@ And('check the terms and conditon', function () {
 });
 
 And('click on checkout button', function () {
-	Shoppingcart.checkoutBtn().click();
-	cy.wait(3000);
+	Shoppingcart.checkoutBtn();
 });
 
 When('checkout as a guest user', function () {
 	Shoppingcart.checkoutAsGuestHeader();
-	checkout.checkoutGuest().click();
+	checkout.checkoutGuest();
 });
 
 Then('verify the ship to same address checkbox', function () {
@@ -84,8 +82,7 @@ And('filling the billing, shipping address', function () {
 });
 
 And('click on continue button', function () {
-	checkout.continueBtn().click();
-	cy.wait(5000);
+	checkout.continueBtn();
 });
 
 When('user select shipping method as {string}', function (shippingMethod) {
@@ -96,19 +93,17 @@ When('user select shipping method as {string}', function (shippingMethod) {
 });
 
 And('click on continue button from shipping section', function () {
-	checkout.shippingContinueBtn().click();
-
+	checkout.shippingContinueBtn();
 });
 
 And('user select the payment method as {string}', function (paymentmethod) {
 	checkout.getMoneyOrderPayment().should('be.visible').should('be.checked');
-	checkout.getPaymentMethod(paymentmethod).should('be.visible').should('not.be.checked').click()
+	checkout.getPaymentMethod(paymentmethod).should('be.visible').click()
 	checkout.paymentMethodHeader();
 });
 
 And('click on continue button from payment section', function () {
-	checkout.paymentContinueBtn().click();
-	cy.wait(3000);
+	checkout.paymentContinueBtn();
 });
 
 Then('verify the {string} payment info', function (paymentMethod) {
@@ -117,15 +112,12 @@ Then('verify the {string} payment info', function (paymentMethod) {
 });
 
 When('click on confirm order button', function () {
-	checkout.confirmBtn().click();
-	cy.wait(3000);
+	checkout.confirmBtn();
 });
-Then('verify the order number, success message', function () {
+
+And('check the order number, success message', function () {
 	checkout.getOrderConfirmation().invoke("text").should("eq", "Thank you");
 	checkout.getOrderNumMessage().contains('Order number:');
-	checkout.confirmPageHeader();
-	cy.wait(3000);
-
 });
 
 And('verify the shipping address details, price', function () {
@@ -141,6 +133,9 @@ And('verify the shipping address details, price', function () {
 });
 
 And('click on continue button from payment-info section', function () {
-	checkout.paymentinfoContinueBtn().click();
-	cy.wait(3000);
+	checkout.paymentinfoContinueBtn();
+});
+
+Then('verify the order checkout header', function () {
+	cy.url().should('include', '/checkout/completed');
 });

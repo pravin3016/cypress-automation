@@ -41,19 +41,23 @@ class CheckoutPage {
 		cy.url().should('include', '/onepagecheckout#opc-confirm_order');
 	}
 	checkoutGuest() {
-		return cy.get('.checkout-as-guest-button');
+		cy.get('.checkout-as-guest-button').click();
+		cy.wait(3000);
 	}
 	continueBtn() {
-		return cy.get("button[name='save']").eq(0);
+		cy.get("button[name='save']").eq(0).click();
+		cy.wait(5000);
 	}
 	shippingContinueBtn() {
-		return cy.get('.shipping-method-next-step-button')
+		cy.get('.shipping-method-next-step-button').click();
 	}
 	paymentContinueBtn() {
-		return cy.get('.payment-method-next-step-button')
+		cy.get('.payment-method-next-step-button').click();
+		cy.wait(3000);
 	}
 	paymentinfoContinueBtn() {
-		return cy.get('.payment-info-next-step-button')
+		cy.get('.payment-info-next-step-button').click();
+		cy.wait(3000)
 	}
 	getShipCheckbox() {
 		return cy.get('#ShipToSameAddress');
@@ -83,14 +87,14 @@ class CheckoutPage {
 			});
 
 		} else {
-			cy.get('p').invoke("text").should("eq", "Mail Personal or Business Check, Cashier's Check or money order to:");
+			cy.get('p').contains("Mail Personal or Business Check, Cashier's Check or money order to:");
 		}
 
 	}
 	getOrderConfirmation() {
 		return cy.get('h1');
 	}
-	fillBillingAddress(firstName,lastName,email,company,country,state,city,addressLine1,addressLine2,zipCode,phonenNumber,fax) {
+	fillBillingAddress(firstName, lastName, email, company, country, state, city, addressLine1, addressLine2, zipCode, phonenNumber, fax) {
 		this.elements.firstName().type(firstName);
 		this.elements.lastName().type(lastName);
 		this.elements.email().type(email);
@@ -113,7 +117,8 @@ class CheckoutPage {
 		return cy.get('div.order-number > strong')
 	}
 	confirmBtn() {
-		return cy.get(".confirm-order-next-step-button")
+		cy.get(".confirm-order-next-step-button").click();
+		cy.wait(3000);
 	}
 	getShippingInfo() {
 		return cy.get('div.shipping-info > ul >li')

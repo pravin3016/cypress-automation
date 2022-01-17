@@ -24,7 +24,8 @@ Feature: To place an order
 		And click on continue button from payment-info section
 		And verify the shipping address details, price
 		When click on confirm order button
-		Then verify the order number, success message
+		And check the order number, success message
+		Then verify the order checkout header
 
 		Examples:
 			| product                           | shippingMethod                               | paymentmethod   |
