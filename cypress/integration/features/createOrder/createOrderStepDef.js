@@ -1,7 +1,6 @@
 /// <reference types="Cypress"/>
 
 import { Then, And, Given, When } from 'cypress-cucumber-preprocessor/steps';
-import { zip } from 'cypress/types/lodash';
 import CheckoutPage from '../../../PageObjects/CheckoutPage';
 import HomePage from '../../../PageObjects/homePage';
 import SearchResultPage from '../../../PageObjects/searchResultpage';
