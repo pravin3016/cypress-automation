@@ -6,9 +6,9 @@ Cypress Automation Test Framework with BDD (Cucumber)
 ## Table of contents
 
 * Get started
-  * Folder Structure
   * Prerequisites
   * Installation
+  * Folder Structure
   
 
 * How to run the tests
@@ -16,17 +16,6 @@ Cypress Automation Test Framework with BDD (Cucumber)
   * Generate HTML report with screenshots
   
 * IDE used
-  
-### Folder Structure
-
-- `Fixtures`,  To maintain the test data.
-- `Integration`, To maintain the `features`, `Step definition`files which hold the test cases.
-- `Plugins` contains the events listeners. Logs the events.
-- `Screenshot` failure screenshots are stored
-- `Support` contains reusable scripts
-- `Videos` 
-- `node_modules` dependencies installed 
-- `cypress.json` Cypress configurations. Overide default values
   
 ### Prerequisites
 
@@ -48,6 +37,18 @@ Cypress Automation Test Framework with BDD (Cucumber)
  ```sh
  npm install
  ```
+ 
+### Folder Structure
+
+- `Fixtures`,  To maintain the test data.
+- `Integration`, To maintain the `features`, `Step definition`files which hold the test cases.
+- `Plugins` contains the events listeners. Logs the events.
+- `Screenshot` failure screenshots are stored
+- `Support` contains reusable scripts
+- `Videos` 
+- `node_modules` dependencies installed 
+- `cypress.json` Cypress configurations. Overide default values
+
 
 ## How to run the tests
 
