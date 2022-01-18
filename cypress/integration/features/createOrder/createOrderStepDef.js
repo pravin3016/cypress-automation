@@ -10,8 +10,8 @@ import SearchResultPage from '../../../PageObjects/SearchResultPage';
 import ShoppingCartPage from '../../../PageObjects/ShoppingCartPage';
 
 // Use the cy.fixture() method to pull data from fixture file
-before(() => {
-  cy.fixture('testdata').then(function (testdata) {
+before(function () {
+  cy.fixture('testdata').then((testdata) => {
     this.testdata = testdata;
   });
 });
@@ -44,7 +44,7 @@ When('go to the shopping cart page', () => {
   Search.shoppingCartLink();
 });
 
-Then('verify the product menu, price, quantity', () => {
+Then('verify the product menu, price, quantity', () => {
   Shoppingcart.shoppingCartHeader();
   Shoppingcart.validatePrice();
 });

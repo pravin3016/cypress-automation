@@ -9,7 +9,7 @@ Feature: To place an order
 		And add an item to the cart
 		Then verify the adding cart message
 		When go to the shopping cart page
-		Then verify the product menu, price, quantity
+		Then verify the product menu, price, quantity
 		And check the terms and conditon
 		And click on checkout button
 		When checkout as a guest user
