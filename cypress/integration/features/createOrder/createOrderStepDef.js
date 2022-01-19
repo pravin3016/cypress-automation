@@ -68,18 +68,20 @@ Then('verify the ship to same address checkbox', () => {
 });
 
 And('filling the billing, shipping address', function () {
-  const { firstname } = this.testdata.billingAddress;
-  const { lastname } = this.testdata.billingAddress;
-  const { email } = this.testdata.billingAddress;
-  const { company } = this.testdata.billingAddress;
-  const { country } = this.testdata.billingAddress;
-  const { state } = this.testdata.billingAddress;
-  const { city } = this.testdata.billingAddress;
-  const { addressLine1 } = this.testdata.billingAddress;
-  const { addressLine2 } = this.testdata.billingAddress;
-  const { zipCode } = this.testdata.billingAddress;
-  const { phonenNumber } = this.testdata.billingAddress;
-  const { fax } = this.testdata.billingAddress;
+  const {
+    firstname,
+    lastname,
+    email,
+    company,
+    country,
+    state,
+    city,
+    addressLine1,
+    addressLine2,
+    zipCode,
+    phonenNumber,
+    fax,
+  } = this.testdata.billingAddress;
 
   checkout.fillBillingAddress(
     firstname,
